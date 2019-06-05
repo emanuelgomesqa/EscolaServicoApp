@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, request
 import sqlite3
 
 app = Flask(__name__)
@@ -11,6 +11,7 @@ def index():
 
 @app.route("/escolas", methods=['GET'])
 def getEscola():
+
     conn = sqlite3.connect('EscolaServicoApp.db')
 
     cursor = conn.cursor()
@@ -21,22 +22,38 @@ def getEscola():
     """)
 
     for linha in cursor.fetchall():
-        return(linha)
+        print(linha)
 
     conn.close()
 
+    return ("Listado com sucesso", 200)
+
 @app.route("/escolas/<int:id>", methods=['GET'])
 def getEscolaByID(id):
-    pass
+    conn = sqlite3.connect('EscolaServicoApp.db')
+
+    cursor = conn.cursor()
+
+    cursor.execute("""
+        SELECT *
+        FROM tb_escola WHERE id_escola = ?;
+    """, (id,))
+
+    for linha in cursor.fetchall():
+        print(linha)
+    conn.close()
+    return ("Listado com sucesso", 200)
 
 @app.route("/escola", methods=['POST'])
-def CadastroEscola():
+def setEscola():
 
     print ("-------------- Cadastrando Escola --------------")
 
     nome = request.form['nome']
     logradouro = request.form['logradouro']
     cidade = request.form['cidade']
+
+    print(nome, logradouro, cidade)
 
     conn = sqlite3.connect('EscolaServicoApp.db')
 
@@ -54,6 +71,13 @@ def CadastroEscola():
 
 # fim Recursos da aplicação tb_escola
 
+# inicio Recursos da aplicação tb_aluno
+# fim Recursos da aplicação tb_aluno
+
+
+# inicio Recursos da aplicação tb_escola
+# fim Recursos da aplicação tb_escola
+
 
 if(__name__ == '__main__'):
-    app.run(host='0.0.0.0', debug=True, use_reloader=True)
+    app.run(host='0.0.0.0', port='5000',debug=True, use_reloader=True)

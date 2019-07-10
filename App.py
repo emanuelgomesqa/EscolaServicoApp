@@ -100,12 +100,19 @@ def getAluno():
         SELECT *
         FROM tb_aluno;
     """)
-
+    alunos = list()
     for linha in cursor.fetchall():
-        print(linha)
-
+        aluno = {
+            "id_aluno" : linha[0],
+            "nome" : linha[1],
+            "matricula" : linha[2],
+            "cpf" : linha[3],
+            "nascimento" : linha[4]
+        }
+        alunos.append(aluno)
     conn.close()
 
+    return jsonify(alunos)
     return ("Listado com sucesso", 200)
 
 
@@ -120,9 +127,16 @@ def getAlunosByID(id):
         FROM tb_aluno WHERE id_aluno = ?;
     """, (id,))
 
-    for linha in cursor.fetchall():
-        print(linha)
+    linha = cursor.fetchone()
+    aluno = {
+        "id_aluno" : linha[0],
+        "nome" : linha[1],
+        "matricula" : linha[2],
+        "cpf" : linha[3],
+        "nascimento" : linha[4]
+    }
     conn.close()
+    return jsonify(linha)
     return ("Listado com sucesso", 200)
 
 
@@ -168,10 +182,19 @@ def getCurso():
         FROM tb_curso;
     """)
 
+    cursos = list()
+
     for linha in cursor.fetchall():
-        print(linha)
+        curso = {
+            "id_curso" : linha[0],
+            "nome" : linha[1],
+            "turno" : linha[2]
+        }
+        cursos.append(curso)
 
     conn.close()
+
+    return jsonify(cursos)
 
     return ("Listado com sucesso", 200)
 
@@ -186,9 +209,15 @@ def getCursosByID(id):
         FROM tb_curso WHERE id_curso = ?;
     """, (id,))
 
-    for linha in cursor.fetchall():
-        print(linha)
+    linha = cursor.fetchone()
+    curso = {
+        "id_curso" : linha[0],
+        "nome" : linha[1],
+        "turno" : linha[2]
+    }
     conn.close()
+
+    return jsonify(curso)
     return ("Listado com sucesso", 200)
 
 @app.route("/curso", methods=['POST'])
@@ -230,10 +259,17 @@ def getTurmas():
         FROM tb_turma;
     """)
 
+    turmas = list()
     for linha in cursor.fetchall():
-        print(linha)
+        turma = {
+            "id_turma" : linha[0],
+            "nome" : linha[1],
+            "curso" : linha[2]
+        }
+        turmas.append(turma)
 
     conn.close()
+    return jsonify(turmas)
 
     return ("Listado com sucesso", 200)
 
@@ -248,9 +284,15 @@ def getTurmasByID(id):
         FROM tb_turma WHERE id_turma = ?;
     """, (id,))
 
-    for linha in cursor.fetchall():
-        print(linha)
+    linha = cursor.fetchone()
+    turma = {
+        "id_turma" : linha[0],
+        "nome" : linha[1],
+        "curso" : linha[2]
+    }
     conn.close()
+
+    return jsonify(linha)
     return ("Listado com sucesso", 200)
 
 @app.route("/turma", methods=['POST'])
@@ -292,10 +334,16 @@ def getDisciplinas():
         FROM tb_disciplina;
     """)
 
+    disciplinas = list()
     for linha in cursor.fetchall():
-        print(linha)
-
+        disciplina = {
+            "id_disciplina" : linha[0],
+            "nome" : linha[1]
+        }
+        disciplinas.append(disciplina)
     conn.close()
+
+    return jsonify(disciplinas)
 
     return ("Listado com sucesso", 200)
 
@@ -310,9 +358,13 @@ def getDisciplinasByID(id):
         FROM tb_disciplina WHERE id_disciplina = ?;
     """, (id,))
 
-    for linha in cursor.fetchall():
-        print(linha)
+    linha = cursor.fetchone()
+    disciplina = {
+        "id_disciplina" : linha[0],
+        "nome" : linha[1]
+    }
     conn.close()
+    return jsonify(linha)
     return ("Listado com sucesso", 200)
 
 @app.route("/disciplina", methods=['POST'])

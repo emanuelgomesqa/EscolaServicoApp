@@ -1,7 +1,9 @@
 from flask import Flask, request
 import sqlite3
+from flask import jsonify
 
 app = Flask(__name__)
+database = 'EscolaServicoApp.db'
 
 @app.route("/")
 def index():
@@ -12,7 +14,7 @@ def index():
 @app.route("/escolas", methods=['GET'])
 def getEscola():
 
-    conn = sqlite3.connect('EscolaServicoApp.db')
+    conn = sqlite3.connect(database)
 
     cursor = conn.cursor()
 
@@ -20,13 +22,22 @@ def getEscola():
         SELECT *
         FROM tb_escola;
     """)
-
+    escolas = list()
     for linha in cursor.fetchall():
-        print(linha)
+        escola = {
+            "id_escola": linha[0],
+            "nome": linha[1],
+            "logradouro": linha[2],
+            "cidade": linha[3]
+        }
+        escolas.append(escola)
 
     conn.close()
 
+    return jsonify(escolas)
+
     return ("Listado com sucesso", 200)
+
 
 @app.route("/escolas/<int:id>", methods=['GET'])
 def getEscolaByID(id):
@@ -39,9 +50,15 @@ def getEscolaByID(id):
         FROM tb_escola WHERE id_escola = ?;
     """, (id,))
 
-    for linha in cursor.fetchall():
-        print(linha)
+    linha = cursor.fetchone()
+    escola = {
+        "id_escola": linha[0],
+        "nome": linha[1],
+        "logradouro": linha[2],
+        "cidade": linha[3]
+    }
     conn.close()
+    return jsonify(linha)
     return ("Listado com sucesso", 200)
 
 @app.route("/escola", methods=['POST'])

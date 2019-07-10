@@ -48,10 +48,16 @@ def getEscolaByID(id):
         SELECT *
         FROM tb_escola WHERE id_escola = ?;
     """, (id,))
-
-    for linha in cursor.fetchall():
-        print(linha)
+    linha = cursor.fetchone()
+    escola = {
+            "id_escola": linha[0],
+            "nome": linha[1],
+            "logradouro": linha[2],
+            "cidade": linha[3]
+        }
+        escolas.append(linha)
     conn.close()
+    return jsonify(escolas)
     return ("Listado com sucesso", 200)
 
 @app.route("/escola", methods=['POST'])
@@ -93,12 +99,18 @@ def getAluno():
         SELECT *
         FROM tb_aluno;
     """)
-
+    alunos = list()
     for linha in cursor.fetchall():
-        print(linha)
+        aluno{
+          "id_aluno": linha[0],
+          "nome": linha[1],
+          "matricula": linha[2]
+          "cpf": linha[3]
+          "nascimento": linha[4]
+        }
 
     conn.close()
-
+    return jsonify(alunos)
     return ("Listado com sucesso", 200)
 
 
@@ -112,10 +124,16 @@ def getAlunosByID(id):
         SELECT *
         FROM tb_aluno WHERE id_aluno = ?;
     """, (id,))
-
-    for linha in cursor.fetchall():
-        print(linha)
+    linha = cursor.fetchone()
+    aluno{
+          "id_aluno": linha[0],
+          "nome": linha[1],
+          "matricula": linha[2]
+          "cpf": linha[3]
+          "nascimento": linha[4]
+        }
     conn.close()
+    return jsonify(linha)
     return ("Listado com sucesso", 200)
 
 
@@ -182,6 +200,7 @@ def getCursosByID(id):
     for linha in cursor.fetchall():
         print(linha)
     conn.close()
+    return jsonify(linha)
     return ("Listado com sucesso", 200)
 
 @app.route("/curso", methods=['POST'])
@@ -244,6 +263,7 @@ def getTurmasByID(id):
     for linha in cursor.fetchall():
         print(linha)
     conn.close()
+    return jsonify(linha)
     return ("Listado com sucesso", 200)
 
 @app.route("/turma", methods=['POST'])
@@ -306,6 +326,7 @@ def getDisciplinasByID(id):
     for linha in cursor.fetchall():
         print(linha)
     conn.close()
+    return jsonify(linha)
     return ("Listado com sucesso", 200)
 
 @app.route("/disciplina", methods=['POST'])

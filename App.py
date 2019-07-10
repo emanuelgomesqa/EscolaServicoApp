@@ -41,7 +41,7 @@ def getEscola():
 
 @app.route("/escolas/<int:id>", methods=['GET'])
 def getEscolaByID(id):
-    conn = sqlite3.connect('EscolaServicoApp.db')
+    conn = sqlite3.connect(database)
 
     cursor = conn.cursor()
 
@@ -65,34 +65,33 @@ def getEscolaByID(id):
 def setEscola():
 
     print ("-------------- Cadastrando Escola --------------")
-
-    nome = request.form['nome']
-    logradouro = request.form['logradouro']
-    cidade = request.form['cidade']
+    escola = request.get_json()
+    nome = escola['nome']
+    logradouro = escola['logradouro']
+    cidade = escola['cidade']
 
     print(nome, logradouro, cidade)
 
-    conn = sqlite3.connect('EscolaServicoApp.db')
-
+    conn = sqlite3.connect(database)
     cursor = conn.cursor()
-
     cursor.execute("""
         INSERT INTO tb_escola(nome, logradouro, cidade)
         VALUES(?,?,?);
     """, (nome,logradouro, cidade))
-
     conn.commit()
     conn.close()
 
-    return ("Cadastro de Escola realizado com sucesso!", 200)
+    id_escola = cursor.lastrowid
+    escola["id_escola"] = id_escola
 
+    return jsonify(escola)
 # fim Recursos da aplicação tb_escola
 
 # inicio Recursos da aplicação tb_aluno
 @app.route("/alunos", methods=['GET'])
 def getAluno():
 
-    conn = sqlite3.connect('EscolaServicoApp.db')
+    conn = sqlite3.connect(database)
 
     cursor = conn.cursor()
 
@@ -118,7 +117,7 @@ def getAluno():
 
 @app.route("/alunos/<int:id>", methods=['GET'])
 def getAlunosByID(id):
-    conn = sqlite3.connect('EscolaServicoApp.db')
+    conn = sqlite3.connect(database)
 
     cursor = conn.cursor()
 
@@ -144,18 +143,16 @@ def getAlunosByID(id):
 def setAluno():
 
     print ("-------------- Cadastrando Aluno --------------")
-
-    nome = request.form['nome']
-    matricula = request.form['matricula']
-    cpf = request.form['cpf']
-    nascimento = request.form['nascimento']
+    aluno = request.get_json()
+    nome = aluno['nome']
+    matricula = aluno['matricula']
+    cpf = aluno['cpf']
+    nascimento = aluno['nascimento']
 
     print(nome, matricula, cpf, nascimento)
 
-    conn = sqlite3.connect('EscolaServicoApp.db')
-
+    conn = sqlite3.connect(database)
     cursor = conn.cursor()
-
     cursor.execute("""
         INSERT INTO tb_aluno(nome, matricula, cpf, nascimento)
         VALUES(?,?,?,?);
@@ -164,6 +161,10 @@ def setAluno():
     conn.commit()
     conn.close()
 
+    id = cursor.lastrowid
+    aluno["id_aluno"] = id
+
+    return jsonify(aluno)
     return ("Cadastro de Aluno realizado com sucesso!", 200)
 
 # inicio Recursos da aplicação tb_aluno
@@ -173,7 +174,7 @@ def setAluno():
 @app.route("/cursos", methods=['GET'])
 def getCurso():
 
-    conn = sqlite3.connect('EscolaServicoApp.db')
+    conn = sqlite3.connect(database)
 
     cursor = conn.cursor()
 
@@ -200,7 +201,7 @@ def getCurso():
 
 @app.route("/cursos/<int:id>", methods=['GET'])
 def getCursosByID(id):
-    conn = sqlite3.connect('EscolaServicoApp.db')
+    conn = sqlite3.connect(database)
 
     cursor = conn.cursor()
 
@@ -224,16 +225,14 @@ def getCursosByID(id):
 def setCurso():
 
     print ("-------------- Cadastrando Curso --------------")
-
-    nome = request.form['nome']
-    turno = request.form['turno']
+    curso = request.get_json()
+    nome = curso['nome']
+    turno = curso['turno']
 
     print(nome, turno)
 
     conn = sqlite3.connect('EscolaServicoApp.db')
-
     cursor = conn.cursor()
-
     cursor.execute("""
         INSERT INTO tb_curso(nome, turno)
         VALUES(?,?);
@@ -241,6 +240,11 @@ def setCurso():
 
     conn.commit()
     conn.close()
+
+    id = cursor.lastrowid
+    aluno["id_curso"] = id
+
+    return jsonify(curso)
 
     return ("Cadastro de Curso realizado com sucesso!", 200)
 # fim Recursos da aplicação tb_curso
@@ -250,7 +254,7 @@ def setCurso():
 @app.route("/turmas", methods=['GET'])
 def getTurmas():
 
-    conn = sqlite3.connect('EscolaServicoApp.db')
+    conn = sqlite3.connect(database)
 
     cursor = conn.cursor()
 
@@ -275,7 +279,7 @@ def getTurmas():
 
 @app.route("/turmas/<int:id>", methods=['GET'])
 def getTurmasByID(id):
-    conn = sqlite3.connect('EscolaServicoApp.db')
+    conn = sqlite3.connect(database)
 
     cursor = conn.cursor()
 
@@ -299,13 +303,13 @@ def getTurmasByID(id):
 def setTurma():
 
     print ("-------------- Cadastrando Turma --------------")
-
-    nome = request.form['nome']
-    curso = request.form['curso']
+    turma = request.get_json()
+    nome = turma['nome']
+    curso = turma['curso']
 
     print(nome, curso)
 
-    conn = sqlite3.connect('EscolaServicoApp.db')
+    conn = sqlite3.connect(database)
 
     cursor = conn.cursor()
 
@@ -317,6 +321,10 @@ def setTurma():
     conn.commit()
     conn.close()
 
+    id = cursor.lastrowid
+    aluno["id_curso"] = id
+
+    return jsonify(turma)
     return ("Cadastro de Turma realizado com sucesso!", 200)
 # fim Recursos da aplicação tb_turma
 
@@ -325,7 +333,7 @@ def setTurma():
 @app.route("/disciplinas", methods=['GET'])
 def getDisciplinas():
 
-    conn = sqlite3.connect('EscolaServicoApp.db')
+    conn = sqlite3.connect(database)
 
     cursor = conn.cursor()
 
@@ -349,7 +357,7 @@ def getDisciplinas():
 
 @app.route("/disciplinas/<int:id>", methods=['GET'])
 def getDisciplinasByID(id):
-    conn = sqlite3.connect('EscolaServicoApp.db')
+    conn = sqlite3.connect(database)
 
     cursor = conn.cursor()
 
@@ -371,15 +379,13 @@ def getDisciplinasByID(id):
 def setDisciplina():
 
     print ("-------------- Cadastrando Disciplina --------------")
-
-    nome = request.form['nome']
+    disciplina = request.get_json()
+    nome = disciplina['nome']
 
     print(nome)
 
-    conn = sqlite3.connect('EscolaServicoApp.db')
-
+    conn = sqlite3.connect(database)
     cursor = conn.cursor()
-
     cursor.execute("""
         INSERT INTO tb_disciplina(nome)
         VALUES(?);
@@ -387,6 +393,11 @@ def setDisciplina():
 
     conn.commit()
     conn.close()
+
+    id = cursor.lastrowid
+    aluno["id_disciplina"] = id
+
+    return jsonify(disciplina)
 
     return ("Cadastro de Disciplina realizado com sucesso!", 200)
 # fim Recursos da aplicação tb_disciplina

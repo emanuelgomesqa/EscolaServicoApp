@@ -1,7 +1,9 @@
 from flask import Flask, request
 import sqlite3
+from flask import jsonify
 
 app = Flask(__name__)
+database = 'EscolaServicoApp.db'
 
 @app.route("/")
 def index():
@@ -12,7 +14,7 @@ def index():
 @app.route("/escolas", methods=['GET'])
 def getEscola():
 
-    conn = sqlite3.connect('EscolaServicoApp.db')
+    conn = sqlite3.connect(database)
 
     cursor = conn.cursor()
 
@@ -20,17 +22,25 @@ def getEscola():
         SELECT *
         FROM tb_escola;
     """)
-
+    escolas = list()
     for linha in cursor.fetchall():
-        print(linha)
+        escola = {
+            "id_escola": linha[0],
+            "nome": linha[1],
+            "logradouro": linha[2],
+            "cidade": linha[3]
+        }
+        escolas.append(escola)
 
     conn.close()
+
+    return jsonify(escolas)
 
     return ("Listado com sucesso", 200)
 
 @app.route("/escolas/<int:id>", methods=['GET'])
 def getEscolaByID(id):
-    conn = sqlite3.connect('EscolaServicoApp.db')
+    conn = sqlite3.connect(database)
 
     cursor = conn.cursor()
 
@@ -55,7 +65,7 @@ def setEscola():
 
     print(nome, logradouro, cidade)
 
-    conn = sqlite3.connect('EscolaServicoApp.db')
+    conn = sqlite3.connect(database)
 
     cursor = conn.cursor()
 
@@ -75,7 +85,7 @@ def setEscola():
 @app.route("/alunos", methods=['GET'])
 def getAluno():
 
-    conn = sqlite3.connect('EscolaServicoApp.db')
+    conn = sqlite3.connect(database)
 
     cursor = conn.cursor()
 
@@ -94,7 +104,7 @@ def getAluno():
 
 @app.route("/alunos/<int:id>", methods=['GET'])
 def getAlunosByID(id):
-    conn = sqlite3.connect('EscolaServicoApp.db')
+    conn = sqlite3.connect(database)
 
     cursor = conn.cursor()
 
@@ -121,7 +131,7 @@ def setAluno():
 
     print(nome, matricula, cpf, nascimento)
 
-    conn = sqlite3.connect('EscolaServicoApp.db')
+    conn = sqlite3.connect(database)
 
     cursor = conn.cursor()
 
@@ -142,7 +152,7 @@ def setAluno():
 @app.route("/cursos", methods=['GET'])
 def getCurso():
 
-    conn = sqlite3.connect('EscolaServicoApp.db')
+    conn = sqlite3.connect(database)
 
     cursor = conn.cursor()
 
@@ -160,7 +170,7 @@ def getCurso():
 
 @app.route("/cursos/<int:id>", methods=['GET'])
 def getCursosByID(id):
-    conn = sqlite3.connect('EscolaServicoApp.db')
+    conn = sqlite3.connect(database)
 
     cursor = conn.cursor()
 
@@ -184,7 +194,7 @@ def setCurso():
 
     print(nome, turno)
 
-    conn = sqlite3.connect('EscolaServicoApp.db')
+    conn = sqlite3.connect(database)
 
     cursor = conn.cursor()
 
@@ -204,7 +214,7 @@ def setCurso():
 @app.route("/turmas", methods=['GET'])
 def getTurmas():
 
-    conn = sqlite3.connect('EscolaServicoApp.db')
+    conn = sqlite3.connect(database)
 
     cursor = conn.cursor()
 
@@ -222,7 +232,7 @@ def getTurmas():
 
 @app.route("/turmas/<int:id>", methods=['GET'])
 def getTurmasByID(id):
-    conn = sqlite3.connect('EscolaServicoApp.db')
+    conn = sqlite3.connect(database)
 
     cursor = conn.cursor()
 
@@ -246,7 +256,7 @@ def setTurma():
 
     print(nome, curso)
 
-    conn = sqlite3.connect('EscolaServicoApp.db')
+    conn = sqlite3.connect(database)
 
     cursor = conn.cursor()
 
@@ -266,7 +276,7 @@ def setTurma():
 @app.route("/disciplinas", methods=['GET'])
 def getDisciplinas():
 
-    conn = sqlite3.connect('EscolaServicoApp.db')
+    conn = sqlite3.connect(database)
 
     cursor = conn.cursor()
 
@@ -284,7 +294,7 @@ def getDisciplinas():
 
 @app.route("/disciplinas/<int:id>", methods=['GET'])
 def getDisciplinasByID(id):
-    conn = sqlite3.connect('EscolaServicoApp.db')
+    conn = sqlite3.connect(database)
 
     cursor = conn.cursor()
 
@@ -307,7 +317,7 @@ def setDisciplina():
 
     print(nome)
 
-    conn = sqlite3.connect('EscolaServicoApp.db')
+    conn = sqlite3.connect(database)
 
     cursor = conn.cursor()
 

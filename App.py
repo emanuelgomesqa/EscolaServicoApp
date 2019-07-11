@@ -402,6 +402,45 @@ def setDisciplina():
     return ("Cadastro de Disciplina realizado com sucesso!", 200)
 # fim Recursos da aplicação tb_disciplina
 
+#INICIO DA IMPLEMENTAÇÃO DOS MÉTODOS PUT DAS TABELAS CRIADAS NO BANCO DE DADOS EscolaServicoApp.db
+
+@app.route("/escola", methods=['PUT'])
+def updateEscola():
+    print ("-------------- Atualizando Escola --------------")
+
+@app.route("/aluno", methods=['PUT'])
+def updateAluno():
+    print ("-------------- Atualizando Aluno --------------")
+
+@app.route("/curso", methods=['PUT'])
+def updateCurso():
+    print ("-------------- Atualizando Curso --------------")
+
+@app.route("/turma", methods=['PUT'])
+def updateTurma():
+    print ("-------------- Atualizando Turma --------------")
+
+@app.route("/disciplina", methods=['PUT'])
+def updateDisciplina(id):
+    print ("-------------- Atualizando Disciplina --------------")
+    # Receber o JSON.
+    disciplina = request.get_json()
+    nome = disciplina['nome']
+    # Buscar a disciplina pelo "id".
+    conn = sqlite3.connect(database)
+    cursor = conn.cursor()
+    cursor.execute("""SELECT * FROM tb_disciplina WHERE id_disciplina = ?""", (id,))
+    # Atualizar os dados caso o aluno seja encontrado através do "id".
+    cursor.execute("""
+        UPDATE tb_disciplina SET nome = ? WHERE id_disciplina = ?;
+    """, (nome,id))
+    #Retornar o JSON do aluno atualizado.
+
+    conn.commit()
+    conn.close()
+
+    return ("PUT", 200)
+#FIM DA IMPLEMENTAÇÃO DOS MÉTODOS PUT DAS TABELAS CRIADAS NO BANCO DE DADOS EscolaServicoApp.db
 
 if(__name__ == '__main__'):
     app.run(host='0.0.0.0', port='5000',debug=True, use_reloader=True)

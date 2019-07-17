@@ -1,18 +1,27 @@
-from flask import Flask, request
-import sqlite3
+from flask import Flask
+from flask import request
 from flask import jsonify
+import sqlite3
+import logging
 
 app = Flask(__name__)
+
+formatter = logging.Formatter("%(asctime)s - %(levelname)s - %(message)s")
+handler = logging.FileHandler("escolaApp.log")
+handler.setFormatter(formatter)
+logger = app.logger
+logger.addHandler(handler)
+logger.setLevel(logging.INFO)
+
 database = 'EscolaServicoApp.db'
 
 @app.route("/")
 def index():
     return ("Seja Bem vindo ao sistema de gerenciamento dos alunos matriculados, cursos, turmas e as disciplinas existentes no IFPB", 200)
-
 # inicio Recursos da aplicação tb_escola
-
 @app.route("/escolas", methods=['GET'])
 def getEscola():
+    logger.info("Listando Escolas")
     conn = sqlite3.connect(database)
     cursor = conn.cursor()
     cursor.execute(""" SELECT * FROM tb_escola; """)
@@ -30,6 +39,7 @@ def getEscola():
     return ("Listado com sucesso", 200)
 @app.route("/escolas/<int:id>", methods=['GET'])
 def getEscolaByID(id):
+    logger.info("Listando Escola com ID  %d" %(id))
     conn = sqlite3.connect(database)
 
     cursor = conn.cursor()
@@ -52,8 +62,7 @@ def getEscolaByID(id):
 
 @app.route("/escola", methods=['POST'])
 def setEscola():
-
-    print ("-------------- Cadastrando Escola --------------")
+    logger.info("Cadastrando uma Nova Escola")
     escola = request.get_json()
     nome = escola['nome']
     logradouro = escola['logradouro']
@@ -79,7 +88,7 @@ def setEscola():
 # inicio Recursos da aplicação tb_aluno
 @app.route("/alunos", methods=['GET'])
 def getAluno():
-
+    logger.info("Listando Alunos")
     conn = sqlite3.connect(database)
 
     cursor = conn.cursor()
@@ -106,6 +115,7 @@ def getAluno():
 
 @app.route("/alunos/<int:id>", methods=['GET'])
 def getAlunosByID(id):
+    logger.info("Listando Alunos com ID  %d" %(id))
     conn = sqlite3.connect(database)
 
     cursor = conn.cursor()
@@ -130,8 +140,7 @@ def getAlunosByID(id):
 
 @app.route("/aluno", methods=['POST'])
 def setAluno():
-
-    print ("-------------- Cadastrando Aluno --------------")
+    logger.info("Cadastrando um Novo Aluno")
     aluno = request.get_json()
     nome = aluno['nome']
     matricula = aluno['matricula']
@@ -162,7 +171,7 @@ def setAluno():
 
 @app.route("/cursos", methods=['GET'])
 def getCurso():
-
+    logger.info("Listando Cursos")
     conn = sqlite3.connect(database)
 
     cursor = conn.cursor()
@@ -190,6 +199,7 @@ def getCurso():
 
 @app.route("/cursos/<int:id>", methods=['GET'])
 def getCursosByID(id):
+    logger.info("Listando Cursos com ID  %d" %(id))
     conn = sqlite3.connect(database)
 
     cursor = conn.cursor()
@@ -212,8 +222,7 @@ def getCursosByID(id):
 
 @app.route("/curso", methods=['POST'])
 def setCurso():
-
-    print ("-------------- Cadastrando Curso --------------")
+    logger.info("Cadastrando um Novo Curso")
     curso = request.get_json()
     nome = curso['nome']
     turno = curso['turno']
@@ -242,7 +251,7 @@ def setCurso():
 
 @app.route("/turmas", methods=['GET'])
 def getTurmas():
-
+    logger.info("Listando Turmas")
     conn = sqlite3.connect(database)
 
     cursor = conn.cursor()
@@ -268,6 +277,7 @@ def getTurmas():
 
 @app.route("/turmas/<int:id>", methods=['GET'])
 def getTurmasByID(id):
+    logger.info("Listando Turmas com ID  %d" %(id))
     conn = sqlite3.connect(database)
 
     cursor = conn.cursor()
@@ -290,8 +300,7 @@ def getTurmasByID(id):
 
 @app.route("/turma", methods=['POST'])
 def setTurma():
-
-    print ("-------------- Cadastrando Turma --------------")
+    logger.info("Cadastrando uma Nova Turma")
     turma = request.get_json()
     nome = turma['nome']
     curso = turma['curso']
@@ -321,7 +330,7 @@ def setTurma():
 
 @app.route("/disciplinas", methods=['GET'])
 def getDisciplinas():
-
+    logger.info("Listando Disciplinas")
     conn = sqlite3.connect(database)
 
     cursor = conn.cursor()
@@ -346,6 +355,7 @@ def getDisciplinas():
 
 @app.route("/disciplinas/<int:id>", methods=['GET'])
 def getDisciplinasByID(id):
+    logger.info("Listando Disciplina com ID  %d" %(id))
     conn = sqlite3.connect(database)
 
     cursor = conn.cursor()
@@ -366,8 +376,7 @@ def getDisciplinasByID(id):
 
 @app.route("/disciplina", methods=['POST'])
 def setDisciplina():
-
-    print ("-------------- Cadastrando Disciplina --------------")
+    logger.info("Cadastrando uma Nova Disciplina")
     disciplina = request.get_json()
     nome = disciplina['nome']
 
@@ -395,20 +404,21 @@ def setDisciplina():
 
 @app.route("/escola/<int:id>", methods=['PUT'])
 def updateEscola(id):
-    print ("-------------- Atualizando Escola --------------")
     escola = request.get_json()
     nome = escola['nome']
     logradouro = escola['logradouro']
     cidade = escola['cidade']
+    logger.info("Atualizando: %s, %s, %s" %(nome, logradouro, cidade))
     conn = sqlite3.connect(database)
     cursor = conn.cursor()
     cursor.execute(""" SELECT * FROM tb_escola WHERE id_escola = ?; """, (id,))
     data = cursor.fetchone()
     if (data is not None):
+        logger.info("Atualizando uma Nova Escola")
         cursor.execute("""UPDATE tb_escola SET nome=?, logradouro=?, cidade=?""" (nome,logradouro, cidade, id))
         conn.commit()
     else:
-        print ("-------------- Cadastrando Escola --------------")
+        logger.info("Cadastrando uma Nova Escola")
         cursor.execute(""" INSERT INTO tb_escola(nome, logradouro, cidade) VALUES(?,?,?); """, (nome,logradouro, cidade))
         conn.commit()
         id = cursor.lastrowid
@@ -417,12 +427,12 @@ def updateEscola(id):
     return jsonify(escola)
 @app.route("/aluno/<int:id>", methods=['PUT'])
 def updateAluno(id):
-    print ("-------------- Atualizando Aluno --------------")
     aluno = request.get_json()
     nome = aluno['nome']
     matricula = aluno['matricula']
     cpf = aluno['cpf']
     nascimento = aluno['nascimento']
+    logger.info("Atualizando: %s, %s, %s, %s" %(nome, matricula, cpf, nascimento))
     conn = sqlite3.connect(database)
     cursor = conn.cursor()
     cursor.execute(""" SELECT * FROM tb_aluno WHERE id_aluno = ?; """, (id,))

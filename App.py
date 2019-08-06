@@ -74,7 +74,11 @@ def index():
 def getEscola():
     logger.info("Listando Escolas")
     try:
+<<<<<<< HEAD
         conn = sqlite3.connect(database)
+=======
+        conn = sqlite3.connect(data)
+>>>>>>> 0f84e2fa774e77fb9fc20fc131aaa7a41089f779
         cursor = conn.cursor()
         cursor.execute(""" SELECT * FROM tb_escola; """)
         escolas = list()
@@ -86,9 +90,62 @@ def getEscola():
                 "cidade": linha[3]
             }
             escolas.append(escola)
+<<<<<<< HEAD
         conn.close()
     except(sqlite3.Error):
         logger.error("Houve um erro na Listagem das Escolas")
+=======
+    except(sqlite3.Error):
+        logger.Error("existe um erro no método Escolas")
+
+    conn.close()
+    return jsonify(escolas)
+    return ("Listado com sucesso", 200)
+@app.route("/escolas/<int:id>", methods=['GET'])
+def getEscolaByID(id):
+    logger.info("Listando Escola com ID  %d" %(id))
+    conn = sqlite3.connect(database)
+
+    cursor = conn.cursor()
+
+    cursor.execute("""
+        SELECT *
+        FROM tb_escola WHERE id_escola = ?;
+    """, (id,))
+
+    linha = cursor.fetchone()
+    escola = {
+        "id_escola": linha[0],
+        "nome": linha[1],
+        "logradouro": linha[2],
+        "cidade": linha[3]
+    }
+    conn.close()
+    return jsonify(linha)
+    return ("Listado com sucesso", 200)
+
+@app.route("/escola", methods=['POST'])
+def setEscola():
+    logger.info("Cadastrando uma Nova Escola")
+    escola = request.get_json()
+    nome = escola['nome']
+    logradouro = escola['logradouro']
+    cidade = escola['cidade']
+
+    print(nome, logradouro, cidade)
+
+    conn = sqlite3.connect(database)
+    cursor = conn.cursor()
+    cursor.execute("""
+        INSERT INTO tb_escola(nome, logradouro, cidade)
+        VALUES(?,?,?);
+    """, (nome,logradouro, cidade))
+    conn.commit()
+    conn.close()
+
+    id_escola = cursor.lastrowid
+    escola["id_escola"] = id_escola
+>>>>>>> 0f84e2fa774e77fb9fc20fc131aaa7a41089f779
 
     return jsonify(escolas)
 
@@ -396,18 +453,31 @@ def setDisciplina():
 @app.route("/escola/<int:id>", methods=['PUT'])
 @schema.validate(schema_escola)
 def updateEscola(id):
+<<<<<<< HEAD
     logger.info("Atualizando Escola com ID: %s" %(id))
     try:
         escola = request.get_json()
         nome = escola['nome']
         logradouro = escola['logradouro']
         cidade = escola['cidade']
+=======
+    escola = request.get_json()
+    nome = escola['nome']
+    logradouro = escola['logradouro']
+    cidade = escola['cidade']
+    logger.info("Atualizando: %s, %s, %s" %(nome, logradouro, cidade))
+    try:
+>>>>>>> 0f84e2fa774e77fb9fc20fc131aaa7a41089f779
         conn = sqlite3.connect(database)
         cursor = conn.cursor()
         cursor.execute(""" SELECT * FROM tb_escola WHERE id_escola = ?; """, (id,))
         data = cursor.fetchone()
         if (data is not None):
+<<<<<<< HEAD
             logger.info("Atualizando uma Escola")
+=======
+            logger.info("Atualizando uma Nova Escola")
+>>>>>>> 0f84e2fa774e77fb9fc20fc131aaa7a41089f779
             cursor.execute("""UPDATE tb_escola SET nome=?, logradouro=?, cidade=?""" (nome,logradouro, cidade, id))
             conn.commit()
         else:
@@ -416,10 +486,16 @@ def updateEscola(id):
             conn.commit()
             id = cursor.lastrowid
             escola["id_escola"] = id
+<<<<<<< HEAD
         conn.close()
     except(sqlite3.Error):
         logger.error("Houve um Erro na Atualização da Escola com ID %s"%(id))
 
+=======
+    except(sqlite3.error):
+        logger.error("existe um error")
+    conn.close()
+>>>>>>> 0f84e2fa774e77fb9fc20fc131aaa7a41089f779
     return jsonify(escola)
 @app.route("/aluno/<int:id>", methods=['PUT'])
 @schema.validate(schema_aluno)

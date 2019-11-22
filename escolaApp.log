@@ -1,10 +1,187 @@
-2019-07-17 11:45:30,415 - INFO - Listando Escolas
-2019-07-17 11:45:44,028 - INFO - Listando Escolas
-2019-07-17 11:45:44,341 - INFO - Listando Escolas
-2019-07-17 11:45:44,609 - INFO - Listando Escolas
-2019-07-17 11:45:44,832 - INFO - Listando Escolas
-2019-07-17 15:08:18,311 - INFO - Listando Cursos com ID  1
-2019-07-17 15:08:25,867 - INFO - Listando Cursos com ID  6
-2019-07-17 15:08:48,281 - INFO - Cadastrando um Novo Curso
-2019-07-17 15:11:41,251 - INFO - Cadastrando um Novo Curso
-2019-07-17 15:12:10,489 - INFO - Listando Cursos
+2019-08-14 09:55:56,767 - INFO - Cadastrando um Novo curso
+2019-08-14 09:56:17,775 - INFO - Cadastrando um Novo curso
+2019-08-14 10:00:16,590 - INFO - Cadastrando um Novo curso
+2019-08-14 10:00:18,202 - INFO - Cadastrando um Novo curso
+2019-08-14 10:00:19,094 - INFO - Cadastrando um Novo curso
+2019-08-14 10:00:19,386 - INFO - Cadastrando um Novo curso
+2019-08-14 10:00:19,633 - INFO - Cadastrando um Novo curso
+2019-08-14 10:01:00,648 - INFO - Cadastrando um Novo curso
+2019-08-14 10:01:06,281 - INFO - Cadastrando um Novo curso
+2019-08-14 10:01:07,694 - INFO - Cadastrando um Novo curso
+2019-08-14 10:01:12,510 - INFO - Cadastrando um Novo curso
+2019-08-14 10:17:43,921 - INFO - Cadastrando um Novo Aluno
+2019-08-14 10:17:46,754 - INFO - Cadastrando um Novo Aluno
+2019-08-14 10:17:59,569 - INFO - Cadastrando um Novo Aluno
+2019-08-14 10:18:01,331 - INFO - Cadastrando um Novo Aluno
+2019-08-14 10:18:02,290 - INFO - Cadastrando um Novo Aluno
+2019-08-14 10:18:03,040 - INFO - Cadastrando um Novo Aluno
+2019-08-14 10:22:47,692 - INFO - Cadastrando um Novo Endereço
+2019-08-14 10:24:13,272 - INFO - Cadastrando um Novo Campus
+2019-08-14 10:25:15,700 - INFO - Cadastrando um Novo Turno
+2019-08-14 10:25:15,701 - ERROR - Houve um erro no Cadastro de um Turno
+2019-08-14 10:25:21,647 - INFO - Cadastrando um Novo Turno
+2019-08-14 10:25:21,648 - ERROR - Houve um erro no Cadastro de um Turno
+2019-08-14 10:25:28,622 - INFO - Cadastrando um Novo Turno
+2019-08-14 10:25:28,623 - ERROR - Houve um erro no Cadastro de um Turno
+2019-08-14 10:25:34,609 - INFO - Cadastrando um Novo Turno
+2019-08-14 10:25:34,610 - ERROR - Houve um erro no Cadastro de um Turno
+2019-08-14 10:27:04,022 - INFO - Cadastrando um Novo Turno
+2019-08-14 10:27:04,023 - ERROR - Houve um erro no Cadastro de um Turno
+2019-08-14 10:27:31,461 - INFO - Cadastrando um Novo Turno
+2019-08-14 10:27:31,462 - ERROR - Houve um erro no Cadastro de um Turno
+2019-08-14 10:34:19,387 - INFO - Cadastrando um Novo Turno
+2019-08-14 10:34:19,429 - ERROR - Houve um erro no Cadastro de um Turno
+2019-08-14 10:35:48,890 - INFO - Cadastrando um Novo Turno
+2019-08-14 10:35:48,891 - ERROR - Houve um erro no Cadastro de um Turno
+2019-08-14 10:35:48,891 - ERROR - <class 'sqlite3.Error'>
+2019-08-14 10:39:11,078 - INFO - Cadastrando um Novo Turno
+2019-08-14 10:40:00,655 - INFO - Cadastrando um Novo Turno
+2019-08-14 10:42:51,992 - INFO - Cadastrando um Novo Turno
+2019-08-14 10:42:59,495 - INFO - Cadastrando um Novo Turno
+2019-08-14 10:43:07,356 - INFO - Cadastrando um Novo Turno
+2019-08-14 10:52:10,113 - INFO - Cadastrando um Novo Endereço
+2019-08-14 10:56:59,643 - INFO - Cadastrando um Novo Campus
+2019-08-14 10:57:00,039 - INFO - Cadastrando um Novo Campus
+2019-08-14 11:15:11,636 - INFO - Listando Todos os Turnos
+2019-08-14 11:15:37,586 - INFO - Listando Todos os Cursos
+2019-08-14 11:16:03,079 - INFO - Cadastrando um Novo Turno
+2019-08-14 11:17:24,191 - INFO - Cadastrando um Novo curso
+2019-08-14 11:18:51,171 - INFO - Cadastrando um Novo curso
+2019-08-14 11:24:20,092 - INFO - Cadastrando um Novo curso
+2019-08-14 11:25:43,866 - INFO - Cadastrando um Novo curso
+2019-08-14 11:27:00,053 - INFO - Cadastrando uma Nova Turma
+2019-08-14 11:27:15,495 - INFO - Cadastrando uma Nova Turma
+2019-08-14 11:27:23,245 - INFO - Cadastrando uma Nova Turma
+2019-08-14 11:30:17,209 - INFO - Cadastrando um Novo Aluno
+2019-08-14 11:31:21,109 - INFO - Cadastrando um Novo Aluno
+2019-08-14 11:32:14,369 - INFO - Cadastrando uma Nova Escola
+2019-08-14 11:32:31,388 - INFO - Cadastrando uma Nova Escola
+2019-08-14 11:33:16,983 - INFO - Cadastrando um Novo Professor
+2019-08-14 11:33:16,983 - ERROR - Houve algum erro!
+2019-08-14 11:33:16,984 - ERROR - Exception error: name 'aluno' is not defined
+2019-08-14 11:33:22,719 - INFO - Cadastrando um Novo Professor
+2019-08-14 11:33:22,720 - ERROR - Houve algum erro!
+2019-08-14 11:33:22,720 - ERROR - Exception error: name 'aluno' is not defined
+2019-08-14 11:34:43,825 - INFO - Cadastrando um Novo Professor
+2019-08-14 11:34:43,826 - ERROR - Houve algum erro!
+2019-08-14 11:34:43,826 - ERROR - Exception error: name 'aluno' is not defined
+2019-08-14 11:34:53,664 - INFO - Cadastrando um Novo Professor
+2019-08-14 11:34:53,665 - ERROR - Houve algum erro!
+2019-08-14 11:34:53,665 - ERROR - Exception error: name 'aluno' is not defined
+2019-08-14 11:35:29,841 - INFO - Cadastrando um Novo Professor
+2019-08-14 11:35:38,131 - INFO - Cadastrando um Novo Professor
+2019-08-14 11:36:39,841 - INFO - Cadastrando uma Nova Disciplina
+2019-08-14 11:36:39,842 - ERROR - Houve algum erro!
+2019-08-14 11:36:39,843 - ERROR - Exception error: 1 values for 2 columns
+2019-08-14 11:37:13,422 - INFO - Cadastrando uma Nova Disciplina
+2019-08-14 11:37:23,205 - INFO - Cadastrando uma Nova Disciplina
+2019-08-14 21:06:30,440 - INFO - Listando Todos os Cursos
+2019-08-15 07:27:42,887 - INFO - Cadastrando um Novo Endereço
+2019-08-15 07:37:54,745 - INFO - Atualizando Endereco com ID: 3
+2019-08-15 07:37:54,839 - ERROR - Houve algum erro!
+2019-08-15 07:37:54,841 - ERROR - Exception error: no such column: idtb_endereco
+2019-08-15 07:38:28,888 - INFO - Atualizando Endereco com ID: 3
+2019-08-15 07:38:28,890 - ERROR - Houve algum erro!
+2019-08-15 07:38:28,891 - ERROR - Exception error: no such column: idtb_endereco
+2019-08-15 07:39:17,605 - INFO - Atualizando Endereco com ID: 3
+2019-08-15 07:39:17,607 - ERROR - Houve algum erro!
+2019-08-15 07:39:17,609 - ERROR - Exception error: no such column: idtb_endereco
+2019-08-15 07:41:02,093 - INFO - Atualizando Endereco com ID: 3
+2019-08-15 07:41:02,095 - ERROR - Houve algum erro!
+2019-08-15 07:41:02,095 - ERROR - Exception error: no such column: idtb_endereco
+2019-08-15 07:41:43,689 - INFO - Atualizando Endereco com ID: 3
+2019-08-15 07:41:43,693 - ERROR - Houve algum erro!
+2019-08-15 07:41:43,693 - ERROR - Exception error: no such column: id_tbendereco
+2019-08-15 07:43:17,838 - INFO - Atualizando Endereco com ID: 3
+2019-08-15 07:43:17,849 - INFO - Atualizando um Endereço
+2019-08-15 07:43:17,850 - ERROR - Houve algum erro!
+2019-08-15 07:43:17,850 - ERROR - Exception error: 'str' object is not callable
+2019-08-15 07:44:39,225 - INFO - Atualizando Endereco com ID: 3
+2019-08-15 07:44:39,227 - INFO - Atualizando um Endereço
+2019-08-15 07:44:39,229 - ERROR - Houve algum erro!
+2019-08-15 07:44:39,231 - ERROR - Exception error: 'str' object is not callable
+2019-08-15 07:48:15,286 - INFO - Atualizando Endereco com ID: 3
+2019-08-15 07:48:15,291 - INFO - Atualizando um Endereço
+2019-08-15 07:48:15,293 - ERROR - Houve algum erro!
+2019-08-15 07:48:15,294 - ERROR - Exception error: 'str' object is not callable
+2019-08-15 07:48:40,048 - INFO - Atualizando Endereco com ID: 3
+2019-08-15 07:48:40,050 - INFO - Atualizando um Endereço
+2019-08-15 07:48:40,050 - ERROR - Houve algum erro!
+2019-08-15 07:48:40,051 - ERROR - Exception error: 'str' object is not callable
+2019-08-15 07:49:29,599 - INFO - Atualizando Endereco com ID: 3
+2019-08-15 07:49:29,602 - INFO - Atualizando um Endereço
+2019-08-15 07:49:29,605 - ERROR - Houve algum erro!
+2019-08-15 07:49:29,606 - ERROR - Exception error: 'str' object is not callable
+2019-08-15 07:49:59,339 - INFO - Atualizando Endereco com ID: 3
+2019-08-15 07:49:59,341 - INFO - Atualizando um Endereço
+2019-08-15 07:49:59,342 - ERROR - Houve algum erro!
+2019-08-15 07:49:59,343 - ERROR - Exception error: 'str' object is not callable
+2019-08-15 07:52:27,691 - INFO - Atualizando Endereco com ID: 3
+2019-08-15 07:52:27,692 - INFO - Atualizando um Endereço
+2019-08-15 07:52:27,692 - ERROR - Houve algum erro!
+2019-08-15 07:52:27,693 - ERROR - Exception error: 'str' object is not callable
+2019-08-15 07:54:00,121 - INFO - Atualizando Endereco com ID: 3
+2019-08-15 07:54:00,123 - INFO - Atualizando um Endereço
+2019-08-15 07:54:00,124 - ERROR - Houve algum erro!
+2019-08-15 07:54:00,124 - ERROR - Exception error: 'str' object is not callable
+2019-08-15 07:56:12,553 - INFO - Atualizando Endereco com ID: 3
+2019-08-15 07:56:12,558 - INFO - Atualizando um Endereço
+2019-08-15 08:10:39,559 - INFO - Atualizando Campus com ID: 3
+2019-08-15 08:10:39,560 - INFO - Atualizando um Campus
+2019-08-15 08:12:21,592 - INFO - Atualizando Turno com ID: 5
+2019-08-15 08:12:53,669 - INFO - Atualizando Turno com ID: 5
+2019-08-15 08:12:53,675 - INFO - Atualizando um Turno
+2019-08-15 08:12:53,678 - ERROR - Houve um Erro na Atualização do Professor com ID 5
+2019-08-15 08:13:29,490 - INFO - Atualizando Turno com ID: 5
+2019-08-15 08:13:29,496 - INFO - Atualizando um Turno
+2019-08-15 08:14:36,286 - INFO - Atualizando Curso com ID: 3
+2019-08-15 08:14:36,286 - INFO - Atualizando um Curso
+2019-08-15 08:15:44,137 - INFO - Atualizando Turma com ID: 3
+2019-08-15 08:15:44,140 - INFO - Atualizando uma Turma
+2019-08-15 08:16:26,036 - INFO - Cadastrando um Novo Aluno
+2019-08-15 08:17:06,192 - INFO - Atualizando Aluno com ID: 3
+2019-08-15 08:17:06,195 - INFO - Atualizando um Aluno
+2019-08-15 08:17:34,379 - INFO - Cadastrando uma Nova Escola
+2019-08-15 08:17:50,897 - INFO - Atualizando Escola com ID: 3
+2019-08-15 08:17:50,900 - INFO - Atualizando uma Escola
+2019-08-15 08:17:50,902 - ERROR - Houve algum erro!
+2019-08-15 08:17:50,904 - ERROR - Exception error: 'str' object is not callable
+2019-08-15 08:18:48,404 - INFO - Atualizando Escola com ID: 3
+2019-08-15 08:18:48,405 - INFO - Atualizando uma Escola
+2019-08-15 08:18:48,405 - ERROR - Houve algum erro!
+2019-08-15 08:18:48,405 - ERROR - Exception error: 'str' object is not callable
+2019-08-15 08:20:33,231 - INFO - Atualizando Escola com ID: 3
+2019-08-15 08:20:33,231 - INFO - Atualizando uma Escola
+2019-08-15 08:20:33,455 - INFO - Atualizando Escola com ID: 3
+2019-08-15 08:20:33,456 - INFO - Atualizando uma Escola
+2019-08-15 08:21:19,460 - INFO - Cadastrando um Novo Professor
+2019-08-15 08:21:35,030 - INFO - Atualizando Professor com ID: 3
+2019-08-15 08:21:35,031 - INFO - Atualizando um Professor
+2019-08-15 08:22:06,272 - INFO - Cadastrando uma Nova Disciplina
+2019-08-15 08:22:35,266 - INFO - Atualizando Disciplina com ID: 3
+2019-08-15 08:22:35,269 - INFO - Atualizando uma Disciplina
+2019-08-15 08:22:46,949 - INFO - Atualizando Disciplina com ID: 3
+2019-08-15 08:22:46,950 - INFO - Atualizando uma Disciplina
+2019-08-15 08:23:00,452 - INFO - Atualizando Disciplina com ID: 3
+2019-08-15 08:23:00,453 - INFO - Atualizando uma Disciplina
+2019-08-15 08:23:26,158 - INFO - Listando Todos os Endereços
+2019-08-15 08:23:46,620 - INFO - Listando Todas as Turmas
+2019-11-01 09:26:34,170 - INFO - Listando Todos os Alunos
+2019-11-08 10:20:30,269 - INFO - Cadastrando um Novo curso
+2019-11-08 10:20:30,306 - ERROR - Houve algum erro!
+2019-11-08 10:20:30,306 - ERROR - Exception error: 'NoneType' object is not subscriptable
+2019-11-08 10:21:46,710 - INFO - Cadastrando um Novo curso
+2019-11-08 10:21:46,711 - ERROR - Houve algum erro!
+2019-11-08 10:21:46,711 - ERROR - Exception error: 'NoneType' object is not subscriptable
+2019-11-08 10:22:07,762 - INFO - Cadastrando um Novo curso
+2019-11-08 10:22:07,762 - ERROR - Houve algum erro!
+2019-11-08 10:22:07,762 - ERROR - Exception error: 'NoneType' object is not subscriptable
+2019-11-08 10:22:29,891 - INFO - Cadastrando um Novo curso
+2019-11-08 10:22:29,892 - ERROR - Houve algum erro!
+2019-11-08 10:22:29,892 - ERROR - Exception error: 'NoneType' object is not subscriptable
+2019-11-08 10:24:28,738 - INFO - Cadastrando um Novo curso
+2019-11-08 10:24:28,739 - ERROR - Houve algum erro!
+2019-11-08 10:24:28,739 - ERROR - Exception error: 'NoneType' object is not subscriptable
+2019-11-08 10:34:41,176 - INFO - Cadastrando um Novo Campus
+2019-11-08 10:34:41,176 - ERROR - Houve algum erro!
+2019-11-08 10:34:41,176 - ERROR - Exception error: 'NoneType' object is not subscriptable

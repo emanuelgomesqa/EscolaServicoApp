@@ -567,13 +567,19 @@ def setAluno():
     logger.info("Cadastrando um Novo Aluno")
     try:
         aluno = request.get_json()
+        print(aluno)
         nome = aluno['nome']
+        print(nome)
         matricula = aluno['matricula']
+        print(matricula)
         cpf = aluno['cpf']
+        print(cpf)
         nascimento = aluno['nascimento']
+        print(nascimento)
         id_endereco = aluno['fk_id_endereco']
+        print(id_endereco)
         id_curso = aluno['fk_id_curso']
-        print(nome, matricula, cpf, nascimento, id_endereco, id_curso)
+        print(id_curso)
         conn = sqlite3.connect(database)
         cursor = conn.cursor()
         cursor.execute(""" INSERT INTO tb_aluno(nome, matricula, cpf, nascimento, fk_id_endereco, fk_id_curso) VALUES(?,?,?,?,?,?); """, (nome, matricula, cpf, nascimento, id_endereco, id_curso))

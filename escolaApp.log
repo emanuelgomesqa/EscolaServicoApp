@@ -228,3 +228,6 @@
 2019-11-26 20:52:13,843 - ERROR - Exception error: 'NoneType' object is not subscriptable
 2019-11-28 07:52:33,589 - INFO - Listando Todos os Alunos
 2019-11-28 07:52:40,661 - INFO - Listando Todos os Turnos
+2019-11-28 08:04:15,562 - INFO - Cadastrando um Novo Aluno
+2019-11-28 08:04:15,563 - ERROR - Houve algum erro!
+2019-11-28 08:04:15,563 - ERROR - Exception error: 'NoneType' object is not subscriptable

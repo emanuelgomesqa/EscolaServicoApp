@@ -6,6 +6,9 @@ import sqlite3
 import logging
 from flask_cors import CORS
 
+#from Entidades.Aluno import Aluno
+#from dao.AlunoDAO import AlunoDAO
+
 app = Flask(__name__)
 
 formatter = logging.Formatter("%(asctime)s - %(levelname)s - %(message)s")

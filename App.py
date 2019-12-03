@@ -6,9 +6,6 @@ import sqlite3
 import logging
 from flask_cors import CORS
 
-#from Entidades.Aluno import Aluno
-#from dao.AlunoDAO import AlunoDAO
-
 app = Flask(__name__)
 
 formatter = logging.Formatter("%(asctime)s - %(levelname)s - %(message)s")
@@ -30,7 +27,7 @@ schema_endereco = {
         'complemento': {'type': 'string'},
         'bairro': {'type': 'string'},
         'cep': {'type': 'string'},
-        'numero': {'type': 'integer'}
+        'numero': {'type': 'string'}
     }
 }
 
@@ -38,8 +35,8 @@ schema_escola = {
     'required': ['nome', 'fk_id_endereco', 'fk_id_campus'],
     'properties': {
         'nome': {'type': 'string'},
-        'id_endereco': {'type': 'integer'},
-        'id_campus': {'type': 'integer'}
+        'fk_id_endereco': {'type': 'integer'},
+        'fk_id_campus': {'type': 'integer'}
     }
 }
 

@@ -284,3 +284,30 @@
 2019-12-03 08:11:09,992 - INFO - Listando Todos os Turnos
 2019-12-03 08:13:10,483 - INFO - Cadastrando um Novo Turno
 2019-12-03 08:13:16,110 - INFO - Listando Todos os Turnos
+<<<<<<< HEAD
+=======
+2019-12-05 07:24:08,822 - INFO - Listando Todos os Alunos
+2019-12-05 07:24:18,814 - INFO - Listando Todos os Professores
+2019-12-05 07:24:30,008 - INFO - Listando Todos os Turnos
+2019-12-05 07:30:15,264 - INFO - Cadastrando um Novo Aluno
+2019-12-05 07:38:08,183 - INFO - Listando Todos os Campus
+2019-12-05 07:38:36,509 - INFO - Listando Todos os Endereços
+2019-12-05 07:52:35,115 - INFO - Listando Todos os Alunos
+2019-12-05 07:52:50,162 - INFO - Listando Todos os Alunos
+2019-12-05 07:55:02,325 - INFO - Cadastrando um Novo Aluno
+2019-12-05 07:55:30,170 - INFO - Listando Todos os Alunos
+2019-12-05 07:56:28,644 - INFO - Listando Todos os Professores
+2019-12-05 07:56:53,403 - INFO - Cadastrando uma Nova Disciplina
+2019-12-05 07:57:52,676 - INFO - Cadastrando um Novo Campus
+2019-12-05 07:59:55,568 - INFO - Listando o Professor com ID 1
+2019-12-05 08:04:06,581 - INFO - Cadastrando um Novo curso
+>>>>>>> c15d480f4c2c090d38ac66341e6473edb4e449f8
+2019-12-06 09:20:39,345 - INFO - Cadastrando um Novo Aluno
+2019-12-06 09:20:41,898 - INFO - Listando Todos os Alunos
+2019-12-06 09:21:28,546 - INFO - Listando Todos os Alunos
+2019-12-06 09:23:03,887 - INFO - Listando Todos os Alunos
+2019-12-06 09:31:25,418 - INFO - Cadastrando um Novo Aluno
+2019-12-06 09:31:28,902 - INFO - Listando Todos os Alunos
+2019-12-06 09:32:10,821 - INFO - Listando Todos os Alunos
+2019-12-06 09:51:34,443 - INFO - Cadastrando um Novo Campus
+2019-12-06 09:53:44,756 - INFO - Cadastrando um Novo Campus
